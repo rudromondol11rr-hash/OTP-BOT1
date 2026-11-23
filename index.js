@@ -1,13 +1,10 @@
 const { Telegraf, Markup } = require('telegraf');
 const axios = require('axios');
 const fs = require('fs');
-
-// কনফিগারেশন Railway Environment Variables থেকে নেওয়া হবে
-const BOT_TOKEN = process.env.BOT_TOKEN;
-const IPRN_API_TOKEN = process.env.IPRN_API_TOKEN;
-const GROUP_ID = process.env.GROUP_ID;
-const CHECK_INTERVAL_MS = parseInt(process.env.CHECK_INTERVAL_MS) || 2500;
-
+const BOT_TOKEN = '9100726768:AAFIPksNHSbJw6PluOebpFN3nJpUOruUKJA';
+const IPRN_API_TOKEN = '559486|0uM6fxwjlMETjoaN9C0p9Fh9FB01ZVoBOVWGReKg17ccd457';
+const GROUP_ID = '-1003930981242';
+const CHECK_INTERVAL_MS = 2500;
 const EDR_API_URL = 'https://api.iprn.pro/api/stock/public/edr?page=1&perPage=15';
 const STATS_FILE = './sms_stats.json';
 
@@ -221,4 +218,5 @@ bot.launch({ dropPendingUpdates: true }).then(async () => {
 });
 
 process.once('SIGINT', () => bot.stop('SIGINT'));
+
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
